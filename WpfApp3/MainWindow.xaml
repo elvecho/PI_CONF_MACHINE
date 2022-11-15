@@ -25,7 +25,7 @@
         <Button x:Name="btSalva" Content="SALVA" HorizontalAlignment="Left" Height="28" Margin="61,229,0,0" VerticalAlignment="Top" Width="94" Click="Button_Click"/>
         <TextBox x:Name="Log" HorizontalAlignment="Left" Height="191" Margin="361,26,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="191" TextChanged="Log_TextChanged"/>
         <Button x:Name="btOks" Content="Tastiera" HorizontalAlignment="Left" Height="28" Margin="201,229,0,0" VerticalAlignment="Top" Width="94" Click="btOks_Click"/>
-        <Button x:Name="Reset" Content="Reset" HorizontalAlignment="Left" Height="19" Margin="463,243,0,0" VerticalAlignment="Top" Width="52" Click="Button_Click_1" Background="#FFF70000"/>
+        <Button x:Name="Reset" Content="Reset" HorizontalAlignment="Left" Height="28" Margin="483,229,0,0" VerticalAlignment="Top" Width="61" Click="Button_Click_1" Background="#FFF70000"/>
 
     </Grid>
 </Window>

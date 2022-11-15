@@ -28,7 +28,7 @@ namespace WpfApp3
         {
             InitializeComponent();       
         }
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Button_Click(object sender, RoutedEventArgs e)//tasto salva, prende le informazoni scritte nella form e le inserisce nel database
         {
             try
             {              
@@ -88,7 +88,7 @@ namespace WpfApp3
         {
 
         }
-        private void btOks_Click(object sender, RoutedEventArgs e)
+        private void btOks_Click(object sender, RoutedEventArgs e)//tasto per la tastiera a video
         {
             System.Diagnostics.ProcessStartInfo processStartInfo = new System.Diagnostics.ProcessStartInfo();
             try
@@ -103,7 +103,7 @@ namespace WpfApp3
             }
         }
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        private void Button_Click_1(object sender, RoutedEventArgs e)//tasto reset, elimina i campi server e client dal database
         {
             if (MessageBox.Show("resettare il database?", "Question", MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.Yes)
             {
@@ -115,15 +115,13 @@ namespace WpfApp3
                 using (var dbContext = new PosInstallerContext())
                 {
                     //List<Machine> machines = new List<Machine>();
-
-                    machineclient = dbContext.Machines.Where(machine => machine.Type == "cl").FirstOrDefault();
+                    machineclient = dbContext.Machines.Where(machine => machine.Type == "cl").FirstOrDefault();  //assegna a machineclient il machine.type "cl" nonchè la chiave univoca 
                     if (machineclient != null)
                     {
                         dbContext.Machines.Remove(machineclient);
                         dbContext.SaveChanges();
                     }
-
-                    machineServer = dbContext.Machines.Where(machine => machine.Type == "se").FirstOrDefault();
+                    machineServer = dbContext.Machines.Where(machine => machine.Type == "se").FirstOrDefault();  
                     if (machineServer != null)
                     {
                         dbContext.Machines.Remove(machineServer);
@@ -131,7 +129,7 @@ namespace WpfApp3
                     }
                 }
             }
-        }
+        } 
     }
 }
 
