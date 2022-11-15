@@ -22,19 +22,16 @@ namespace WpfApp3
     /// </summary>
     public partial class MainWindow : Window
     {
- 
         bool regolare = true;
 
         public MainWindow()
         {
             InitializeComponent();       
         }
-
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             try
-            {
-               
+            {              
                 using (var dbContext = new PosInstallerContext())
                 {
                     regolare = true;
@@ -43,8 +40,7 @@ namespace WpfApp3
                     string Password = txtPassword.Text;
                     //string tipo = combobox.SelectionBoxItem.ToString();
                     string tipo = ((ComboBoxItem)comboboxTipo.SelectedItem).Tag.ToString();
-                    Machine machineToCreate = new Machine();
-                    
+                    Machine machineToCreate = new Machine();                    
                     
                     if (tipo != "" && nomemacchina != "" && username != "" && Password != "")
                     {
@@ -54,16 +50,15 @@ namespace WpfApp3
 
                             if (nomemacchina == Environment.MachineName)
                             {
-                                Log.Text = "nome macchina corretto";                                  
+                                Log.Text = "" + "nome macchina corretto";                                  
                             }
                             else
                             {
-                                Log.Text = "il nome macchina non corrisponde alla macchina attuale";
+                                Log.Text = "" + "il nome macchina non corrisponde alla macchina attuale";
                                 txtNome_macchina.Clear();
                                 regolare = false;
                             }
-                        }
-                        
+                        }                       
                         if (regolare == true)
                         {
                             machineToCreate.Type = tipo;
@@ -82,7 +77,6 @@ namespace WpfApp3
                     {
                         Log.Text = "inserire tutti i campi";
                     }
-
                 }
             }
             catch (Exception ex)
@@ -90,13 +84,10 @@ namespace WpfApp3
                 Log.Text = ex.Message;
             }
         }
-
-
         private void Log_TextChanged(object sender, TextChangedEventArgs e)
         {
 
         }
-
         private void btOks_Click(object sender, RoutedEventArgs e)
         {
             System.Diagnostics.ProcessStartInfo processStartInfo = new System.Diagnostics.ProcessStartInfo();
@@ -108,11 +99,39 @@ namespace WpfApp3
             }
             catch (System.Exception exception)
             {
-                Log.Text = exception.Message;
-                
-                
+                Log.Text = exception.Message;                               
+            }
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            if (MessageBox.Show("resettare il database?", "Question", MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.Yes)
+            {
+                txtNome_macchina.Clear();
+                txtUser.Clear();
+                txtPassword.Clear();
+                Machine machineServer = new Machine();
+                Machine machineclient = new Machine();
+                using (var dbContext = new PosInstallerContext())
+                {
+                    //List<Machine> machines = new List<Machine>();
+
+                    machineclient = dbContext.Machines.Where(machine => machine.Type == "cl").FirstOrDefault();
+                    if (machineclient != null)
+                    {
+                        dbContext.Machines.Remove(machineclient);
+                        dbContext.SaveChanges();
+                    }
+
+                    machineServer = dbContext.Machines.Where(machine => machine.Type == "se").FirstOrDefault();
+                    if (machineServer != null)
+                    {
+                        dbContext.Machines.Remove(machineServer);
+                        dbContext.SaveChanges();
+                    }
+                }
             }
         }
     }
-    }
+}
 

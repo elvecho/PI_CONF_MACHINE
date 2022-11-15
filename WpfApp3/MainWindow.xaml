@@ -6,9 +6,9 @@
         xmlns:local="clr-namespace:WpfApp3"
         mc:Ignorable="d"
         Title="MainWindow" Height="304" Width="575">
-    <Grid Background="#FFDAD6D6" RenderTransformOrigin="0.217,0.383" Margin="0,0,0,6">
+    <Grid Background="#FFDAD6D6" RenderTransformOrigin="0.217,0.383" Margin="0,0,0,6" Width="575" Height="282.04">
         <Grid.RowDefinitions>
-            <RowDefinition/>
+            <RowDefinition Height="282.04"/>
             <RowDefinition Height="0*"/>
         </Grid.RowDefinitions>
         <TextBox x:Name="txtNome_macchina" HorizontalAlignment="Left" Margin="201,37,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Height="20"/>
@@ -18,13 +18,14 @@
         <Label x:Name="lbUser" Content="User" HorizontalAlignment="Left" Margin="61,79,0,0" VerticalAlignment="Top" Height="26" Width="34"/>
         <Label x:Name="lbPassword" Content="Password" HorizontalAlignment="Left" Margin="61,129,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.613,3.909" Height="26" Width="60"/>
         <Label x:Name="lbTipo" Content="Tipo" HorizontalAlignment="Left" Margin="62,179,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.613,3.909" Height="26" Width="33"/>
-        <ComboBox x:Name="comboboxTipo" Margin="201,179,237,58">
+        <ComboBox x:Name="comboboxTipo" Margin="201,0,0,77" Background="{x:Null}" Height="26" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="120">
             <ComboBoxItem x:Name="CLIENT" Content="Client" Tag="cl" ContentStringFormat="CLIENT"/>
             <ComboBoxItem x:Name="SERVER" Content="Server" Tag="se" ContentStringFormat="SERVER"/>
         </ComboBox>
         <Button x:Name="btSalva" Content="SALVA" HorizontalAlignment="Left" Height="28" Margin="61,229,0,0" VerticalAlignment="Top" Width="94" Click="Button_Click"/>
         <TextBox x:Name="Log" HorizontalAlignment="Left" Height="191" Margin="361,26,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="191" TextChanged="Log_TextChanged"/>
-        <Button x:Name="btOks" Content="Tastiera" HorizontalAlignment="Left" Height="28" Margin="216,229,0,0" VerticalAlignment="Top" Width="110" Click="btOks_Click"/>
+        <Button x:Name="btOks" Content="Tastiera" HorizontalAlignment="Left" Height="28" Margin="201,229,0,0" VerticalAlignment="Top" Width="94" Click="btOks_Click"/>
+        <Button x:Name="Reset" Content="Reset" HorizontalAlignment="Left" Height="19" Margin="463,243,0,0" VerticalAlignment="Top" Width="52" Click="Button_Click_1" Background="#FFF70000"/>
 
     </Grid>
 </Window>
