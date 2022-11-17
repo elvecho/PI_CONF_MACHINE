@@ -105,14 +105,10 @@ namespace WpfApp3
                                 txtNome_macchina.Clear();
                                 Log.Text = "aggiunto in modo corretto";
                                 machines.Add(machineToCreate);
-                                Nmachines.Items.Refresh();
-                                
+                                Nmachines.Items.Refresh();                                
                             }
-                        }
-
-                        
+                        }                       
                     }
-
                     else
                     {
                         Log.Text = "inserire tutti i campi";
@@ -198,6 +194,15 @@ namespace WpfApp3
                 txtUser.Text = username;
             }
             
+        }
+
+        private void cancella_Click(object sender, RoutedEventArgs e)
+        {
+            txtNome_macchina.Clear();
+            txtUser.Clear();
+            txtPassword.Clear();
+            machines.Clear();
+            comboboxTipo.SelectedItem = null;
         }
         // private void Row_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         //{
