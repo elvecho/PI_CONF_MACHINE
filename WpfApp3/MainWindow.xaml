@@ -27,7 +27,7 @@
         <Button x:Name="btOks" Content="Tastiera" HorizontalAlignment="Left" Height="28" Margin="128,141,0,0" VerticalAlignment="Top" Width="94" Click="btOks_Click"/>
         <Button x:Name="Reset" Content="Reset" HorizontalAlignment="Left" Height="21" Margin="308,148,0,0" VerticalAlignment="Top" Width="21" Click="Button_Click_1" Background="#FFF70000"/>
         <Grid Margin="14,185,10,10" DataContext="">
-            <DataGrid Name="Nmachines" AutoGenerateColumns="False" Margin="-7,0,0,0" SelectionChanged="Nmachines_SelectionChanged" ItemsSource="{Binding}">
+            <DataGrid Name="Nmachines" AutoGenerateColumns="False" Margin="-7,0,0,0" SelectionChanged="Nmachines_SelectionChanged" ItemsSource="{Binding}" Width="326" Height="87.04" CanUserAddRows="False">
                 <DataGrid.Columns>
 
                     <DataGridTextColumn Header="Type" Binding="{Binding Type}" />

@@ -39,7 +39,7 @@ namespace WpfApp3
             }
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)//tasto salva, prende le informazoni scritte nella form e le inserisce nel database
+        private void Button_Click(object sender, RoutedEventArgs e)  //tasto salva, prende le informazoni scritte nella form e le inserisce e aggiorna il database
         {
             try
             {
@@ -53,15 +53,13 @@ namespace WpfApp3
                     string Password = txtPassword.Text;
                     //string tipo = combobox.SelectionBoxItem.ToString();
                     string tipo = ((ComboBoxItem)comboboxTipo.SelectedItem).Tag.ToString();
+                    
                     Machine machineToCreate = new Machine();
-
-                  
+                 
                    if (tipo != "" && nomemacchina != "" && username != "" && Password != "")
                    {
                         if (tipo == "cl")
                         {
-                            Log.Text = "Client";
-
                             if (nomemacchina == Environment.MachineName)
                             {
                                 Log.Text = "" + "nome macchina corretto";
@@ -73,7 +71,7 @@ namespace WpfApp3
                                 regolare = false;
                             }
                         }
-
+                         //Update entity framework
                         Machine machinetomodifide = null;
                         machinetomodifide = dbContext.Machines.Where(machine => machine.Type == ((ComboBoxItem)comboboxTipo.SelectedItem).Tag.ToString()).FirstOrDefault();
                         if (machinetomodifide != null && regolare == true)
@@ -90,6 +88,7 @@ namespace WpfApp3
                         }
                         else
                         {
+                            //create entity framework
                             if (regolare == true)
                             {
                                 prova = false;
@@ -119,10 +118,6 @@ namespace WpfApp3
             {
                 Log.Text = ex.Message;
             }
-        }
-        private void Log_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
         }
         private void btOks_Click(object sender, RoutedEventArgs e)//tasto per la tastiera a video
         {
@@ -170,30 +165,36 @@ namespace WpfApp3
 
         private void Nmachines_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (prova == false)
+            try
             {
-                //((Machine)Nmachines.SelectedItem).Type.ToString();
-                //string tipo = comboboxTipo.SelectionBoxItem.ToString();
-                string tipo = ((Machine)Nmachines.SelectedItem).Type.ToString();
-                string nomemacchina = ((Machine)Nmachines.SelectedItem).MachineName.ToString();
-                string username = ((Machine)Nmachines.SelectedItem).Username.ToString();
-                string password = ((Machine)Nmachines.SelectedItem).Password.ToString();
-                using (var dbContext = new PosInstallerContext())
+                if (prova == false)
+                {
+                    //((Machine)Nmachines.SelectedItem).Type.ToString();
+                    //string tipo = comboboxTipo.SelectionBoxItem.ToString();
+                    string tipo = ((Machine)Nmachines.SelectedItem).Type.ToString();
+                    string nomemacchina = ((Machine)Nmachines.SelectedItem).MachineName.ToString();
+                    string username = ((Machine)Nmachines.SelectedItem).Username.ToString();
+                    string password = ((Machine)Nmachines.SelectedItem).Password.ToString();
+                    using (var dbContext = new PosInstallerContext())
 
-                    if (tipo == "se")
-                    {
-                        comboboxTipo.SelectedItem = SERVER;
-                    }
-                else if(tipo == "cl")
-                    {
-                        comboboxTipo.SelectedItem = CLIENT;
-                    }
-               
-                txtNome_macchina.Text = nomemacchina;
-                txtPassword.Text = password;
-                txtUser.Text = username;
+                        if (tipo == "se")
+                        {
+                            comboboxTipo.SelectedItem = SERVER;
+                        }
+                        else if (tipo == "cl")
+                        {
+                            comboboxTipo.SelectedItem = CLIENT;
+                        }
+
+                    txtNome_macchina.Text = nomemacchina;
+                    txtPassword.Text = password;
+                    txtUser.Text = username;
+                }
             }
-            
+            catch (Exception ex)
+            {
+                Log.Text = ex.Message;
+            }
         }
 
         private void cancella_Click(object sender, RoutedEventArgs e)
