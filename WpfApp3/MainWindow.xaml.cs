@@ -45,6 +45,7 @@ namespace WpfApp3
             {
                 using (var dbContext = new PosInstallerContext())
                 {
+                    txtErrNomeMacchina.Clear();
                     Nmachines.Items.Refresh();
                     Nmachines.ItemsSource = machines;
                     regolare = true;
@@ -62,11 +63,11 @@ namespace WpfApp3
                         {
                             if (nomemacchina == Environment.MachineName)
                             {
-                                Log.Text = "" + "nome macchina corretto";
+                                txtErrNomeMacchina.Text = "" + "nome macchina corretto";
                             }
                             else
-                            {
-                                Log.Text = "" + "il nome macchina non corrisponde alla macchina attuale";
+                            {                                
+                                txtErrNomeMacchina.Text = "il nome macchina non corrisponde alla macchina attuale";
                                 txtNome_macchina.Clear();
                                 regolare = false;
                             }
@@ -102,7 +103,7 @@ namespace WpfApp3
                                 txtUser.Clear();
                                 txtPassword.Clear();
                                 txtNome_macchina.Clear();
-                                Log.Text = "aggiunto in modo corretto";
+                                
                                 machines.Add(machineToCreate);
                                 Nmachines.Items.Refresh();                                
                             }
@@ -110,7 +111,7 @@ namespace WpfApp3
                     }
                     else
                     {
-                        Log.Text = "inserire tutti i campi";
+                        //Log.Text = "inserire tutti i campi";
                     }
                 }
             }
@@ -199,6 +200,7 @@ namespace WpfApp3
 
         private void cancella_Click(object sender, RoutedEventArgs e)
         {
+            txtErrNomeMacchina.Clear();
             txtNome_macchina.Clear();
             txtUser.Clear();
             txtPassword.Clear();

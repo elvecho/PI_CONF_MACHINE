@@ -5,29 +5,42 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp3"
         mc:Ignorable="d"
-        Title="MainWindow" Height="304" Width="343">
-    <Grid Background="#FFDAD6D6" RenderTransformOrigin="0.217,0.383" Margin="0,0,0,1" Width="343" Height="287.04">
+        Title="MainWindow" Height="313" Width="349">
+    <Grid Background="#FFDAD6D6" RenderTransformOrigin="0.217,0.383" Margin="0,0,0,3">
         <Grid.RowDefinitions>
-            <RowDefinition Height="282.04"/>
+            <RowDefinition Height="14.195"/>
+            <RowDefinition Height="267.845"/>
             <RowDefinition Height="0*"/>
         </Grid.RowDefinitions>
-        <TextBox x:Name="txtNome_macchina" HorizontalAlignment="Left" Margin="128,16,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Height="20"/>
-        <TextBox x:Name="txtUser" HorizontalAlignment="Left" Margin="128,47,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Height="20"/>
-        <TextBox x:Name="txtPassword" HorizontalAlignment="Left" Margin="128,81,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Height="20"/>
-        <Label x:Name="lbNomeMacchina" Content="nome macchina" HorizontalAlignment="Left" Margin="14,10,0,0" VerticalAlignment="Top" Height="26" Width="94"/>
-        <Label x:Name="lbUser" Content="User" HorizontalAlignment="Left" Margin="14,41,0,0" VerticalAlignment="Top" Height="26" Width="34"/>
-        <Label x:Name="lbPassword" Content="Password" HorizontalAlignment="Left" Margin="14,75,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.613,3.909" Height="26" Width="60"/>
-        <Label x:Name="lbTipo" Content="Tipo" HorizontalAlignment="Left" Margin="14,108,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.613,3.909" Height="26" Width="33"/>
-        <ComboBox x:Name="comboboxTipo" Margin="128,0,0,146" Background="{x:Null}" Height="26" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="120">
+        <TextBox x:Name="txtNome_macchina" HorizontalAlignment="Left" Margin="128,19,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="158" Height="20" Grid.Row="1"/>
+        <TextBox x:Name="txtUser" HorizontalAlignment="Left" Margin="128,49,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="158" Height="20" Grid.Row="1"/>
+        <TextBox x:Name="txtPassword" HorizontalAlignment="Left" Margin="128,81,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="158" Height="20" Grid.Row="1" RenderTransformOrigin="0.5,0.5">
+            <TextBox.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-0.102"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </TextBox.RenderTransform>
+        </TextBox>
+        <Label x:Name="lbNomeMacchina" Content="Nome macchina" HorizontalAlignment="Left" Margin="14,16,0,0" VerticalAlignment="Top" Height="26" Width="101" Background="#00000000" Grid.Row="1"/>
+        <Label x:Name="lbUser" Content="User" HorizontalAlignment="Left" Margin="14,47,0,0" VerticalAlignment="Top" Height="26" Width="34" Grid.Row="1"/>
+        <Label x:Name="lbPassword" Content="Password" HorizontalAlignment="Left" Margin="15,78,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.613,3.909" Height="26" Width="60" Grid.Row="1"/>
+        <Label x:Name="lbTipo" Content="Tipo" HorizontalAlignment="Left" Margin="15,109,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.613,3.909" Height="26" Width="33" Grid.Row="1"/>
+        <ComboBox x:Name="comboboxTipo" Margin="128,0,0,134" Background="{x:Null}" Height="24" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="158" Grid.Row="1">
             <ComboBoxItem x:Name="CLIENT" Content="Client" Tag="cl" ContentStringFormat="CLIENT"/>
             <ComboBoxItem x:Name="SERVER" Content="Server" Tag="se" ContentStringFormat="SERVER"/>
         </ComboBox>
-        <Button x:Name="btSalva" Content="SALVA" HorizontalAlignment="Left" Height="28" Margin="14,141,0,0" VerticalAlignment="Top" Width="94" Click="Button_Click"/>
-        <TextBox x:Name="Log" HorizontalAlignment="Left" Height="90" Margin="266,16,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="62"/>
-        <Button x:Name="btOks" Content="Tastiera" HorizontalAlignment="Left" Height="28" Margin="128,141,0,0" VerticalAlignment="Top" Width="94" Click="btOks_Click"/>
-        <Button x:Name="Reset" Content="Reset" HorizontalAlignment="Left" Height="21" Margin="308,148,0,0" VerticalAlignment="Top" Width="21" Click="Button_Click_1" Background="#FFF70000"/>
-        <Grid Margin="14,185,10,10" DataContext="">
-            <DataGrid Name="Nmachines" AutoGenerateColumns="False" Margin="-7,0,0,0" SelectionChanged="Nmachines_SelectionChanged" ItemsSource="{Binding}" Width="326" Height="87.04" CanUserAddRows="False" HorizontalAlignment="Left" VerticalAlignment="Top">
+        <Button x:Name="btSalva" Content="Salva" HorizontalAlignment="Left" Height="21" Margin="22,145,0,0" VerticalAlignment="Top" Width="71" Click="Button_Click" Grid.Row="1"/>
+        <Button x:Name="btOks" Content="Tastiera" HorizontalAlignment="Left" Height="21" Margin="128,145,0,0" VerticalAlignment="Top" Width="71" Click="btOks_Click" Grid.Row="1" RenderTransformOrigin="0.384,0.718"/>
+        <Button x:Name="Reset" Content="Reset" HorizontalAlignment="Left" Height="21" Margin="308,134,0,0" VerticalAlignment="Top" Width="21" Click="Button_Click_1" Background="#FFF70000" Grid.Row="1"/>
+        <Grid Margin="14,171,10,10" DataContext="" Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="13*"/>
+                <ColumnDefinition Width="12*"/>
+            </Grid.ColumnDefinitions>
+            <DataGrid Name="Nmachines" AutoGenerateColumns="False" SelectionChanged="Nmachines_SelectionChanged" ItemsSource="{Binding}" Width="315" Height="87" CanUserAddRows="False" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.ColumnSpan="2">
                 <DataGrid.Columns>
 
                     <DataGridTextColumn Header="Type" Binding="{Binding Type}" />
@@ -38,7 +51,9 @@
 
             </DataGrid>
         </Grid>
-        <Button x:Name="cancella" Content="Nuovo" HorizontalAlignment="Left" Margin="238,141,0,0" VerticalAlignment="Top" Height="28" Width="59" Click="cancella_Click"/>
+        <Button x:Name="cancella" Content="Nuovo" HorizontalAlignment="Left" Margin="225,145,0,0" VerticalAlignment="Top" Height="21" Width="71" Click="cancella_Click" Grid.Row="1"/>
+        <TextBox x:Name="Log" HorizontalAlignment="Left" Height="98" Margin="274,10,0,0" Grid.Row="1" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="65" Visibility="Hidden"/>
+        <TextBox x:Name="txtErrNomeMacchina" HorizontalAlignment="Center" Height="21" Margin="0,4,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="339" Grid.RowSpan="2" Background="#FFDAD6D6" BorderThickness="0" IsReadOnly="True"/>
 
 
     </Grid>
