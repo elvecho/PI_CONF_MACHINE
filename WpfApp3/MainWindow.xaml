@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp3"
         mc:Ignorable="d"
-        Title="MainWindow" Height="313" Width="349">
+        Title="MainWindow" Height="313" Width="349" ResizeMode="CanMinimize">
     <Grid Background="#FFDAD6D6" RenderTransformOrigin="0.217,0.383" Margin="0,0,0,3">
         <Grid.RowDefinitions>
             <RowDefinition Height="14.195"/>
@@ -53,7 +53,7 @@
         </Grid>
         <Button x:Name="cancella" Content="Nuovo" HorizontalAlignment="Left" Margin="225,145,0,0" VerticalAlignment="Top" Height="21" Width="71" Click="cancella_Click" Grid.Row="1"/>
         <TextBox x:Name="Log" HorizontalAlignment="Left" Height="98" Margin="274,10,0,0" Grid.Row="1" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="65" Visibility="Hidden"/>
-        <TextBox x:Name="txtErrNomeMacchina" HorizontalAlignment="Center" Height="21" Margin="0,4,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="339" Grid.RowSpan="2" Background="#FFDAD6D6" BorderThickness="0" IsReadOnly="True"/>
+        <TextBox x:Name="txtErrNomeMacchina" HorizontalAlignment="Center" Height="21" Margin="0,4,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="319" Grid.RowSpan="2" Background="#FFDAD6D6" BorderThickness="0" IsReadOnly="True" TextAlignment="Center"/>
 
 
     </Grid>
